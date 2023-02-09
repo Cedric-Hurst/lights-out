@@ -62,10 +62,10 @@ class Board extends Component {
   render() {
     const title = <div><span className="neon-orange">Lights </span><span className="neon-blue"> Out</span></div>
     const tblBoard = this.state.board.map((row, y) =>
-      <tr>{row.map((cell, x) =>
+      <tr key={y}>{row.map((cell, x) =>
         <Cell key={`${y}-${x}`} isLit={cell} flipCellsAroundMe={() => this.flipCellsAround(`${y}-${x}`)} />)}
       </tr>)
-    const table = <div>{title}<table className="Board">{tblBoard}</table></div>
+    const table = <div>{title}<table className="Board"><tbody>{tblBoard}</tbody></table></div>
     const win = <div><span className="neon-orange">You </span><span className="neon-blue"> Win!</span></div>
     return (
       <div>
